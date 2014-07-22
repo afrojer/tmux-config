@@ -1,4 +1,0 @@
-[submodule "plugins/powerline"]
-	path = plugins/powerline
-	url = https://github.com/Lokaltog/powerline
-	branch = develop
