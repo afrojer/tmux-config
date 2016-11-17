@@ -5,7 +5,7 @@ empty   = "☆"
 battery = "🔋"
 plug    = "⚡"
 
-  star_count = 5 
+star_count = 5
 per_star = 100/star_count
 
 v= Hash.new()
@@ -15,8 +15,10 @@ ARGF.each do |a|
     #test for the first line
     if a =~ /'(.*)'/
       v[:source] = $~[1]
+      v[:percent] = 100
     else
       v[:source] = ""
+      v[:percent] = 0
     end
   elsif a.start_with?" -"
     if a =~ /(\d{1,3})%;\s(.*);\s(\d:\d{2}|\(no estimate\))/
@@ -24,7 +26,7 @@ ARGF.each do |a|
       v[:state]   = $~[2]
       v[:time]    = $~[3]
     else
-      v[:percent] = "0"
+      v[:percent] = 0
       v[:state]   = "unknown"
       v[:time]    = "unknown"
     end
